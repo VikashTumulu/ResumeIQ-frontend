@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeIQ - Compare with Job Description</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash-body">
+
+  <div class="dash-shell">
+
+    <div class="dash-header">
+      <div>
+        <p class="eyebrow">RESUMEIQ // COMPARE</p>
+        <h1>Compare with job description</h1>
+      </div>
+      <div class="dash-user">
+        <p class="greeting">Signed in as <span id="userNameLabel">—</span></p>
+        <button class="logout-btn" id="logoutBtn">Log out</button>
+      </div>
+    </div>
+
+    <a href="dashboard.html" class="back-link">← Back to dashboard</a>
+
+    <div class="dash-grid">
+
+      <!-- Left: JD form -->
+      <div class="panel">
+        <p class="panel-label">01 // Job description</p>
+
+        <p class="resume-context" id="resumeContext"></p>
+
+        <form id="jdForm">
+          <div class="jd-meta-row">
+            <div class="field">
+              <label for="jobTitle">Job title</label>
+              <input type="text" id="jobTitle" placeholder="e.g. Backend Developer" required>
+            </div>
+            <div class="field">
+              <label for="companyName">Company</label>
+              <input type="text" id="companyName" placeholder="e.g. Acme Corp" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="jdText">Job description text</label>
+            <textarea id="jdText" placeholder="Paste the full job description here..." required></textarea>
+          </div>
+
+          <button type="submit" class="analyze-btn" id="compareSubmitBtn">Compare resume against this JD</button>
+        </form>
+
+        <p class="status-line" id="compareStatus"></p>
+      </div>
+
+      <!-- Right: results -->
+      <div class="panel results-panel">
+        <p class="panel-label">02 // Match results</p>
+
+        <div class="results-empty" id="resultsEmpty">
+          Submit a job description to see how<br>your resume matches up.
+        </div>
+
+        <div class="facts-ticker" id="factsTicker" style="display:none;"></div>
+
+        <div id="resultsContent" style="display:none;">
+
+          <div class="score-readout">
+            <span class="score-number" id="scoreNumber">0</span>
+            <span class="score-max">/ 100</span>
+            <span class="score-tag" id="scoreTag">—</span>
+          </div>
+
+          <div class="result-block">
+            <h3>Overall summary</h3>
+            <p id="overallSummary"></p>
+          </div>
+
+          <div class="result-block strengths">
+            <h3>Strengths</h3>
+            <ul id="strengthsList"></ul>
+          </div>
+
+          <div class="result-block weaknesses">
+            <h3>Weaknesses</h3>
+            <ul id="weaknessesList"></ul>
+          </div>
+
+          <div class="result-block">
+            <h3>Missing keywords</h3>
+            <div class="keyword-chips" id="keywordChips"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/facts.js"></script>
+  <script src="js/compare.js"></script>
+</body>
+</html>

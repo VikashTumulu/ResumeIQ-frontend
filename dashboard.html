@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResumeIQ - Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dash-body">
+
+  <div class="dash-shell">
+
+    <div class="dash-header">
+      <div>
+        <p class="eyebrow">RESUMEIQ // DASHBOARD</p>
+        <h1>Resume analysis</h1>
+      </div>
+      <div class="dash-user">
+        <p class="greeting">Signed in as <span id="userNameLabel">—</span></p>
+        <button class="logout-btn" id="logoutBtn">Log out</button>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+
+      <!-- Left: upload + analyze -->
+      <div class="panel">
+        <p class="panel-label">01 // Upload resume</p>
+
+        <label class="upload-zone" id="uploadZone">
+          <input type="file" id="resumeFile" accept=".pdf,.doc,.docx">
+          <p id="uploadZoneText">Drop your resume here or click to browse<br>(PDF or DOCX)</p>
+          <p class="filename" id="fileNameDisplay"></p>
+        </label>
+
+        <p class="status-line" id="uploadStatus"></p>
+
+        <button class="analyze-btn" id="analyzeBtn" disabled>Analyze resume</button>
+        <button class="compare-btn" id="compareBtn">Compare with job description →</button>
+        <p class="facts-ticker" id="factsTicker"></p>
+      </div>
+
+      <!-- Right: results -->
+      <div class="panel results-panel">
+        <p class="panel-label">02 // Results</p>
+
+        <div class="results-empty" id="resultsEmpty">
+          Upload a resume and run analysis to see<br>your ATS score and feedback here.
+        </div>
+
+        <div id="resultsContent" style="display:none;">
+
+          <div class="score-readout">
+            <span class="score-number" id="scoreNumber">0</span>
+            <span class="score-max">/ 100</span>
+            <span class="score-tag" id="scoreTag">—</span>
+          </div>
+
+          <div class="result-block">
+            <h3>Overall summary</h3>
+            <p id="overallSummary"></p>
+          </div>
+
+          <div class="result-block strengths">
+            <h3>Strengths</h3>
+            <ul id="strengthsList"></ul>
+          </div>
+
+          <div class="result-block weaknesses">
+            <h3>Weaknesses</h3>
+            <ul id="weaknessesList"></ul>
+          </div>
+
+          <div class="result-block">
+            <h3>Missing keywords</h3>
+            <div class="keyword-chips" id="keywordChips"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/facts.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
