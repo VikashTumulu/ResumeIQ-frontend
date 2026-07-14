@@ -11,7 +11,7 @@ form.addEventListener('submit', async (event) => {
   errorMsg.textContent = ''; // clear any old error
 
   try {
-    const response = await fetch('http://localhost:8080/api/auth/register', {
+    const response = await fetch('https://resumeiq-backend-xjzs.onrender.com/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
